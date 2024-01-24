@@ -52,13 +52,18 @@ This repository contains the following Python scripts for a ROS 2 (Robot Operati
    ros2 run <package_name> file_publisher.py
    ```
 
-7. In another terminal, run the diagnostic subscriber node:
+7. In another terminal, run the lora node:
+
+   ```
+   ros2 run <package_name> lora_node.py
+   ```
+8.  In another terminal, run the diagnostic subscriber node:
 
    ```
    ros2 run <package_name> diagnostic_subscriber.py
    ```
 
-8. In another terminal, run the diagnostic publisher node:
+9. In another terminal, run the diagnostic publisher node:
 
    ```
    ros2 run <package_name> diagnostic_publisher.py
