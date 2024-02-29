@@ -79,7 +79,9 @@ The HTML code represents a template for rendering a web page that displays a lis
 
 ## Accessing the File List Web Page on Another Device
 
-To access the `index.html` page on another device, make sure both devices are on the same local wifi network. Follow these steps:
+To access the `index.html` page on another device, make sure both devices are on the same local wifi network. 
+Also to see any thing on the webpage the data is to be stored at the following location of Rasberry pi '/home/pi/Documents/wifi_data'.
+Follow these steps:
 
 1. Find the IP address of your Raspberry Pi:
     - You can usually find this information by running `ifconfig` on your Raspberry Pi and looking for the IP address associated with the network interface (e.g., wlan0).
