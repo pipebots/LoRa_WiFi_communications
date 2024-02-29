@@ -1,3 +1,14 @@
+**Overview**
+This repository contains a ROS2 nodes designed to facilitate communication over LoRa 868 MHz and WiFi. The node subscribes to various pieces of information, including sensor data, and diagnostic information. This information is then transmitted to a ground station. The LoRa communication is established using a Pycom LoPy4 device connected to a Raspberry Pi 4 via a USB port.
+
+**Requirements**
+To set up the communication system, you will need the following hardware components:
+
+2 Pycom LoPy4 or FiPy devices
+2 pycom Expansion Boards 3.0
+Raspberry Pi 4 with ROS2 installed
+1 PC for base station monitoring
+
 
 This repository contains the following Python scripts for a ROS 2 (Robot Operating System 2) project:
 
@@ -8,8 +19,10 @@ This repository contains the following Python scripts for a ROS 2 (Robot Operati
 3. `diagnostic_subscriber.py`: This script defines the `DiagnosticSubscriber` class, which is a ROS 2 node responsible for subscribing to the "diagnostic_info" topic and receiving diagnostic information. It logs the received information and writes it to a CSV file.
 
 4. `diagnostic_publisher.py`: This script defines the `DiagnosticPublisher` class, which is a ROS 2 node responsible for publishing diagnostic information to the "diagnostic_info" topic. It retrieves system information such as CPU temperature, CPU usage, and RAM usage, and publishes it as a `DiagnosticStatus` message.
-5. index.html in templates folder
-The HTML code represents a template for rendering a web page that displays a list of files. The template is intended to be used with a Flask web server, and it dynamically generates HTML content based on the files received from the ROS topic. 
+   
+6. index.html in templates folder
+The HTML code represents a template for rendering a web page that displays a list of files. The template is intended to be used with a Flask web server, and it dynamically generates HTML content based on the files received from the ROS topic. This page allows to view, download and delete the data save at the following location of Rasberry pi. 'home/pi1/Ducuments/wifi_data'
+
 
 ## Prerequisites
 
@@ -17,12 +30,16 @@ The HTML code represents a template for rendering a web page that displays a lis
 
 - Python 3: The scripts are written in Python 3. Make sure you have Python 3 installed on your system.
 
-- Dependencies: Install the necessary dependencies by running the following command:
+- Dependencies: Install the necessary dependencies
 
-  ```
-  pip install rclpy flask gpiozero psutil
-  ```
+**Setup Instructions**
+Connect the Raspberry Pi 4 to the LoPy4 device using a USB cable. Ensure that the correct port (in this code, it is assumed to be ttyACM0) is used.
 
+Connect the LoPy4 device to the PC or laptop located at the ground station.
+
+Save the code in the file mainSender.py to the main.py file of the LoPy4 connected to the Raspberry Pi 4.
+
+Save the code in the file mainBS.py to the main.py file of the LoPy4 connected to the laptop or PC, which functions as the base station.
 ## How to Use
 
 1. Clone the repository to your local machine.
@@ -73,14 +90,15 @@ The HTML code represents a template for rendering a web page that displays a lis
 
 Note: Replace `<package_name>` with the actual name of the ROS 2 package containing the scripts.
 
-index.html
-The HTML code represents a template for rendering a web page that displays a list of files. The template is intended to be used with a Flask web server, and it dynamically generates HTML content based on the files received from the ROS topic. 
+
 
 
 ## Accessing the File List Web Page on Another Device
 
 To access the `index.html` page on another device, make sure both devices are on the same local wifi network. 
+
 Also to see any thing on the webpage the data is to be stored at the following location of Rasberry pi '/home/pi/Documents/wifi_data'.
+
 Follow these steps:
 
 1. Find the IP address of your Raspberry Pi:
