@@ -1,15 +1,5 @@
-**Overview**
+## Overview
 This repository contains a ROS2 nodes designed to facilitate communication over LoRa 868 MHz and WiFi. The node subscribes to various pieces of information, including sensor data, and diagnostic information. This information is then transmitted to a ground station. The LoRa communication is established using a Pycom LoPy4 device connected to a Raspberry Pi 4 via a USB port.
-
-**Requirements**
-To set up the communication system, you will need the following hardware components:
-
-2 Pycom LoPy4 or FiPy devices
-2 pycom Expansion Boards 3.0
-Raspberry Pi 4 with ROS2 installed
-1 PC for base station monitoring
-
-
 This repository contains the following Python scripts for a ROS 2 (Robot Operating System 2) project:
 
 1. `integrated_node.py`: This script defines the `IntegratedNode` class, which is a ROS 2 node responsible for integrating different functionalities. It subscribes to topics for receiving data from other nodes, manages WiFi connection, runs a Flask server for serving web pages, and writes data to a CSV file. It also communicates with a Pycom LoPy4 device over serial. This code integrates ROS 2 with a Flask web server to create a simple web interface for interacting with data received from a ROS topic. The script creates a ROS 2 node that subscribes to a specific ROS topic (folder_path_topic). When a message is received, it logs the folder path, lists the files in that folder, and starts a Flask web server. The web server provides a simple interface to view the list of files and download them.
@@ -24,6 +14,15 @@ This repository contains the following Python scripts for a ROS 2 (Robot Operati
 The HTML code represents a template for rendering a web page that displays a list of files. The template is intended to be used with a Flask web server, and it dynamically generates HTML content based on the files received from the ROS topic. This page allows to view, download and delete the data save at the following location of Rasberry pi. 'home/pi1/Ducuments/wifi_data'
 
 
+## Requirements
+To set up the communication system, you will need the following hardware components:
+
+2 Pycom LoPy4 or FiPy devices
+2 pycom Expansion Boards 3.0
+Raspberry Pi 4 with ROS2 installed
+1 PC for base station monitoring
+
+
 ## Prerequisites
 
 - ROS 2: Make sure you have ROS 2 installed on your system. Refer to the ROS 2 documentation for installation instructions.
@@ -32,7 +31,8 @@ The HTML code represents a template for rendering a web page that displays a lis
 
 - Dependencies: Install the necessary dependencies
 
-**Setup Instructions**
+## Setup Instructions
+
 Connect the Raspberry Pi 4 to the LoPy4 device using a USB cable. Ensure that the correct port (in this code, it is assumed to be ttyACM0) is used.
 
 Connect the LoPy4 device to the PC or laptop located at the ground station.
@@ -91,13 +91,11 @@ Save the code in the file mainBS.py to the main.py file of the LoPy4 connected t
 Note: Replace `<package_name>` with the actual name of the ROS 2 package containing the scripts.
 
 
-
-
 ## Accessing the File List Web Page on Another Device
 
-To access the `index.html` page on another device, make sure both devices are on the same local wifi network. 
+To access the `index.html` page on another device which is a base station PC/ laptop for monitoring, make sure both Rasberry pi and basetation are on the same local wifi network. 
 
-Also to see any thing on the webpage the data is to be stored at the following location of Rasberry pi '/home/pi/Documents/wifi_data'.
+This webpage will diaplay all the files which are stored at the following location of Rasberry pi '/home/pi/Documents/wifi_data'.
 
 Follow these steps:
 
@@ -122,8 +120,6 @@ This information will help users access the web page served by your Flask applic
 - Make sure to modify the scripts according to your specific requirements. Update the topics, file paths, WiFi credentials, and other parameters as needed.
 
 - The scripts assume the presence of specific directories and files. Make sure the directories and files exist or modify the paths accordingly.
-
-- Refer to the comments in the scripts for detailed explanations of each component and its functionality.
 
 - For more information on ROS 2 and its concepts, refer to the ROS 2 documentation.
 
